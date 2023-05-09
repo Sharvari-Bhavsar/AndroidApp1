@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
+
 
 import android.widget.Toast;
 
@@ -35,14 +35,17 @@ public class loginActivity extends AppCompatActivity {
                 String password = edPassword.getText().toString();
                 Database db = new Database(getApplicationContext(),"Child App",null,1);
                 if(username.length()==0 || password.length()==0){
-                    Toast.makeText(getApplicationContext(),"Please fill all details" ,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(loginActivity.this,"Please fill all details" ,Toast.LENGTH_SHORT).show();
+
+
+
                 }
                 else{
                     if(db.login(username,password)==1){
-                        Toast.makeText(getApplicationContext(),"Login Successful" ,Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(loginActivity.this,VaccineActivity.class));
+                        Toast.makeText(loginActivity.this,"Login Successful" ,Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(loginActivity.this,status_database_U.class));
                     }else{
-                        Toast.makeText(getApplicationContext(),"Invalid username and password" ,Toast.LENGTH_SHORT).show();
+                        Toast.makeText(loginActivity.this,"Invalid username and password" ,Toast.LENGTH_SHORT).show();
                     }
 
 

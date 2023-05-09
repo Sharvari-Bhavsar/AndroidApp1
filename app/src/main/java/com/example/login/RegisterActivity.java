@@ -38,19 +38,19 @@ public class RegisterActivity extends AppCompatActivity {
                     String name = edName.getText().toString();
                     String phone_no = edPhone_no.getText().toString();
                     String Email = edEmail.getText().toString();
-                    Database db = new Database(getApplicationContext(),"Child App",null,1);
+                    Database db = new Database(RegisterActivity.this,"Child App",null,1);
 
                     if(username.length()==0 || password.length()==0 ||name.length()==0 || phone_no.length()==0 ||Email.length()==0){
-                        Toast.makeText(getApplicationContext(),"Please fill all details" ,Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterActivity.this,"Please fill all details" ,Toast.LENGTH_SHORT).show();
                     }
                     else if(!password.equals(confirmPassword)){
-                        Toast.makeText(getApplicationContext(),"Password and ConfirmPassword are not same" ,Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterActivity.this,"Password and ConfirmPassword are not same" ,Toast.LENGTH_SHORT).show();
 
                     }
                     else{
                         db.register(name,phone_no,Email,username,password);
-                        Toast.makeText(getApplicationContext(),"Registration Successful" ,Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(RegisterActivity.this,VaccineActivity.class));
+                        Toast.makeText(RegisterActivity.this,"Registration Successful" ,Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(RegisterActivity.this,loginActivity.class));
                     }
 
                 }
