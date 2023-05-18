@@ -18,24 +18,14 @@
 
         android:layout_marginTop="30dp"/>
     <EditText
-        android:id="@+id/Vaccinename"
+        android:id="@+id/userID_FK"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="VaccineName"
+        android:hint="User_id"
         android:textSize="24dp"
         android:layout_marginTop="30dp"
         android:textColor="@color/blue2"
         android:layout_below="@+id/texttitle"
-        android:inputType="textPersonName"/>
-
-    <EditText
-        android:id="@+id/Status"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="status"
-        android:textSize="24dp"
-        android:textColor="@color/blue2"
-        android:layout_below="@+id/Vaccinename"
         android:inputType="textPersonName"/>
 
     <Button
@@ -47,7 +37,7 @@
         android:layout_marginTop="30dp"
         android:textColor="@color/white"
         android:backgroundTint="@color/purple_200"
-        android:layout_below="@id/Status"/>
+        android:layout_below="@id/userID_FK"/>
     <Button
         android:id="@+id/btnUpdate"
         android:layout_width="match_parent"

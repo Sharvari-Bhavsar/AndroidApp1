@@ -13,7 +13,9 @@ import android.widget.Toast;
 
 public class loginActivity extends AppCompatActivity {
 
-    EditText edUsername,edPassword;
+    EditText edUsername;
+    EditText edPassword;
+    int User_id;
     Button Lbtn,Rbtn;
 
 
@@ -33,7 +35,7 @@ public class loginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String username = edUsername.getText().toString();
                 String password = edPassword.getText().toString();
-                Database db = new Database(getApplicationContext(),"Child App",null,1);
+                Database db = new Database(loginActivity.this);
                 if(username.length()==0 || password.length()==0){
                     Toast.makeText(loginActivity.this,"Please fill all details" ,Toast.LENGTH_SHORT).show();
 
@@ -41,9 +43,12 @@ public class loginActivity extends AppCompatActivity {
 
                 }
                 else{
-                    if(db.login(username,password)==1){
+                    if(db.login(username, password) == 1){
+                        new  Database(loginActivity.this).USERdumpCursorInLogCat();
+
                         Toast.makeText(loginActivity.this,"Login Successful" ,Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(loginActivity.this,status_database_U.class));
+
                     }else{
                         Toast.makeText(loginActivity.this,"Invalid username and password" ,Toast.LENGTH_SHORT).show();
                     }
